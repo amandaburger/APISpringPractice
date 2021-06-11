@@ -1,4 +1,4 @@
-package com.practice.api.amanda.movies.resources;
+package com.practice.api.amanda.movies.resources.movieStuff;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
