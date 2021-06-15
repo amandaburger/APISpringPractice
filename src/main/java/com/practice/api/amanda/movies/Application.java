@@ -10,12 +10,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+@RestController
 @SpringBootApplication
 public class Application{
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
-
+	private CountryRepository repository;
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
@@ -29,7 +32,8 @@ public class Application{
 	}
 
 	@Bean
-	public CommandLineRunner demo(CountryRepository repository) {
+	public CommandLineRunner demo(CountryRepository repo) {
+		repository=repo;
 		return (args) -> {
 			repository.save(new Country(1000, "amanda", "45678", "56789", 12));
 			Country[] countries = restTTemplate.getForObject(
@@ -48,6 +52,14 @@ public class Application{
 		};
 
 		}
+
+	@RequestMapping("/countries")
+	public Iterable<Country> getMovieInfo() {
+		return repository.findAll();
+	}
+
+
+
 
 
 }

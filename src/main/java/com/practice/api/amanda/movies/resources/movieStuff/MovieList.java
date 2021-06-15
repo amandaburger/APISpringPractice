@@ -1,3 +1,4 @@
+/*
 package com.practice.api.amanda.movies.resources.movieStuff;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,3 +36,5 @@ public class MovieList {
     }
 
 }
+*/
+

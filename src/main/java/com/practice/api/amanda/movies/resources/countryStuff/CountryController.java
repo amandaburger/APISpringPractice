@@ -1,6 +1,7 @@
 /*
 package com.practice.api.amanda.movies.resources.countryStuff;
 
+import com.practice.api.amanda.movies.resources.countryStuff.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -23,14 +24,10 @@ public class CountryController {
     @GetMapping("/country")
     private List<Country> getAllCountries()
     {
+        countryService.initbruh();
         return countryService.getAllCountries();
     }
 
-    @PostMapping("/country")
-    private String saveCountry(@RequestBody Country country)
-    {
-        countryService.saveOrUpdate(country);
-        return country.getName();
-    }
+
 }
 */
